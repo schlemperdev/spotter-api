@@ -1,24 +1,12 @@
 class Lead:
     def __init__(self, leadName, industry, source, subSource, organizationId, sdrEmail, ddiPhone, phone, address, addressNumber, addressComplement, neighborhood, zipcode, city, state, country, description, cpfcnpj, funnelId, stage, customfields):
         self.leadId = None
-        self.leadName = leadName
         self.industry = industry
         self.source = source
         self.subSource = subSource
         self.organizationId = organizationId
-        self.sdrEmail = sdrEmail
-        self.ddiPhone = ddiPhone
-        self.phone = phone
-        self.address = address
-        self.addressNumber = addressNumber
-        self.addressComplement = addressComplement
-        self.neighborhood = neighborhood
-        self.zipcode = zipcode
-        self.city = city
-        self.state = state
-        self.country = country
+        
         self.description = description
-        self.cpfcnpj = cpfcnpj
         self.funnelId = funnelId
         self.stage = stage
         self.customId01 = id01
