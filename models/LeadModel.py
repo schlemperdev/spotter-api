@@ -19,31 +19,3 @@ class Lead(BaseEntity):
         self.stage = stage
         self.customId01 = None
         self.customId02 = None
-
-    # def to_dict(self):
-    #     return {
-    #         "name": self.name,
-    #         "industry": self.industry,
-    #         "source": self.source,
-    #         "subSource": self.subSource,
-    #         "organizationId": self.organizationId,
-    #         "sdrEmail": self.sdrEmail,
-    #         "ddiPhone": self.ddiPhone,
-    #         "phone": self.phone,
-    #         "address": self.address,
-    #         "addressNumber": self.addressNumber,
-    #         "addressComplement": self.addressComplement,
-    #         "neighborhood": self.neighborhood,
-    #         "zipcode": self.zipcode,
-    #         "city": self.city,
-    #         "state": self.state,
-    #         "country": self.country,
-    #         "description": self.description,
-    #         "cpfcnpj": self.cpfCnpj,
-    #         "funnelId": self.funnelId,
-    #         "stage": self.stage,
-    #         "camposPersonalizados": [
-    #             {"id": "customId01", "valor": self.id01},
-    #             {"id": "customId02", "valor": self.id02}
-    #         ]
-    #     }
