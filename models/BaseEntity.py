@@ -1,8 +1,8 @@
 class BaseEntity:
-    def __init__(self, cpfcnpj, name, sdrEmail, ddiPhone, phone, address,
+    def __init__(self, cpfCnpj, name, sdrEmail, ddiPhone, phone, address,
                  addressNumber, addressComplement, neighborhood, zipcode,
                  city, state, country):
-        self.cpfcnpj = cpfcnpj
+        self.cpfCnpj = cpfCnpj
         self.name = name
         self.sdrEmail = sdrEmail
         self.ddiPhone = ddiPhone
