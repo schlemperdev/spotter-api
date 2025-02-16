@@ -1,6 +1,7 @@
-class LeadModel:
-    def __init__(self, name, industry, source, subSource, organizationId, sdrEmail, ddiPhone, phone, address, addressNumber, addressComplement, neighborhood, zipcode, city, state, country, description, cpfCnpj, funnelId, stage, customfields):
-        self.name = name
+class Lead:
+    def __init__(self, leadName, industry, source, subSource, organizationId, sdrEmail, ddiPhone, phone, address, addressNumber, addressComplement, neighborhood, zipcode, city, state, country, description, cpfcnpj, funnelId, stage, customfields):
+        self.leadId = None
+        self.leadName = leadName
         self.industry = industry
         self.source = source
         self.subSource = subSource
@@ -17,15 +18,15 @@ class LeadModel:
         self.state = state
         self.country = country
         self.description = description
-        self.cpfCnpj = cpfCnpj
+        self.cpfcnpj = cpfcnpj
         self.funnelId = funnelId
         self.stage = stage
         self.customId01 = id01
         self.customId02 = id02
-    
+
     def to_dict(self):
         return {
-            "name": self.name,
+            "name": self.leadName,
             "industry": self.industry,
             "source": self.source,
             "subSource": self.subSource,
@@ -42,7 +43,7 @@ class LeadModel:
             "state": self.state,
             "country": self.country,
             "description": self.description,
-            "cpfCnpj": self.cpfCnpj,
+            "cpfcnpj": self.cpfcnpj,
             "funnelId": self.funnelId,
             "stage": self.stage,
             "camposPersonalizados": [

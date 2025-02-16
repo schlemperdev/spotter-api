@@ -1,4 +1,4 @@
-class OrganizationModel:
+class Organization:
     def __init__(self, name, userEmail, cpfCnpj, ddiPhone, phone, address, addressComplement, zipcode, city, state, country):
         self.name = name
         self.userEmail = userEmail

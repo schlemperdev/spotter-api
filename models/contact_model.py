@@ -1,4 +1,4 @@
-class ContactModel:
+class Contact:
     def __init__(self, email, name, leadId, ddiPhone1, phone1, mainContact):
         self.contactEmail = contactEmail
         self.contactName = contactName
