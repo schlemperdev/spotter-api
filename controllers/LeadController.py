@@ -28,4 +28,8 @@ def handle_lead(main_data, organization_id):
     lead_json = LeadSerializer.serialize(lead)
     response = create_lead(lead_json)
 
-    return response.get("leadId")
+    if response is not None and "leadId" in response:
+        return response["leadId"]
+    else:
+        print("Erro ao obter 'leadId' da resposta:" , response)
+        return None

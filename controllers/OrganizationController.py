@@ -23,5 +23,5 @@ def handle_org(main_data):
     if response is not None and "organizationId" in response:
         return response["organizationId"]
     else:
-        print("Erro ao obter 'organizationId' da resposta:", response)
+        print("Erro ao obter 'organizationId' da resposta: ", response)
         return None

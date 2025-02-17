@@ -46,8 +46,8 @@ def create_lead(lead_json):
             print("Erro: Resposta não é um JSON válido.")
             return None
     else:
-        print(f"Erro ao criar lead: {response.status_code}")
-        print(response.text)
+        print(f"Erro código: {response.status_code}")
+        print("Resposta:", response.text)
         return None
 
 
@@ -64,6 +64,6 @@ def create_contact(contact_json):
             print("Erro: Resposta não é um JSON válido.")
             return None
     else:
-        print(f"Erro ao criar lead: {response.status_code}")
-        print(response.text)
+        print(f"Erro código: {response.status_code}")
+        print("Resposta:", response.text)
         return None
