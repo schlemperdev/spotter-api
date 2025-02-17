@@ -1,4 +1,4 @@
-from forms.createForm import data_collect, contact_data_collect
+from forms.mainForm import data_collect, contact_data_collect
 from models.LeadModel import Lead
 from models.ContactModel import Contact
 from serializers import LeadSerializer, ContactSerializer
@@ -15,7 +15,7 @@ novo_lead.leadId = resposta["leadId"]
 
 
 # Coletar e enviar Contato
-dados_contato = coletar_dados_contato()
+dados_contato = contact_data_collect()
 novo_contato = Contact(novo_lead.leadId, **dados_contato)
 contato_json = ContactSerializer.serialize(novo_contato)
 create_contact(contato_json)
