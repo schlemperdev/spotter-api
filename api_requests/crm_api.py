@@ -5,29 +5,46 @@ import requests
 
 load_dotenv()
 API_KEY = os.getenv("SPOTTER_API_KEY")
-BASE_URL = os.getenv("SPOTER_BASE_URL")
+BASE_URL = os.getenv("SPOTTER_BASE_URL")
 
-endpoint = ""
-url = f"{BASE_URL}{endpoint}"
-headers = {"Content-Type": "application/json", "token_exact": f"{API_KEY}"}
+# Verifica se as variáveis foram carregadas corretamente
+if not API_KEY or not BASE_URL:
+    raise ValueError(
+        "Erro: SPOTTER_API_KEY ou SPOTTER_BASE_URL não definidos no .env")
+
+headers = {"Content-Type": "application/json", "token_exact": API_KEY}
 
 
 def create_org(org_json):
     endpoint = "/personsAdd"
+    url = BASE_URL + endpoint
+
     response = requests.post(url, data=org_json, headers=headers)
+
     if response.status_code == 201:
-        return response.json()  # Retorna os dados da organização criada, incluindo o ID
+        try:
+            return response.json()  # Retorna os dados da organização criada, incluindo o ID
+        except requests.exceptions.JSONDecodeError:
+            print("Erro: Resposta não é um JSON válido.")
+            return None
     else:
-        print(f"Erro ao criar organização: {response.status_code}")
-        print(response.text)
+        print(f"Erro código: {response.status_code}")
+        print("Resposta:", response.text)
         return None
 
 
 def create_lead(lead_json):
     endpoint = "/LeadsAdd"
-    response = requests.post(url, data=lead_json, headers=headers)
+    url = BASE_URL + endpoint
+
+    response = requests.post(url, json=lead_json, headers=headers)
+
     if response.status_code == 201:
-        return response.json()  # Retorna os dados do lead criado, incluindo o ID
+        try:
+            return response.json()  # Retorna os dados do lead criado, incluindo o ID
+        except requests.exceptions.JSONDecodeError:
+            print("Erro: Resposta não é um JSON válido.")
+            return None
     else:
         print(f"Erro ao criar lead: {response.status_code}")
         print(response.text)
@@ -36,9 +53,16 @@ def create_lead(lead_json):
 
 def create_contact(contact_json):
     endpoint = "/personsAdd"
-    response = requests.post(url, data=contact_json, headers=headers)
+    url = BASE_URL + endpoint
+
+    response = requests.post(url, json=contact_json, headers=headers)
+
     if response.status_code == 201:
-        return response.json()  # Retorna os dados do contato criado
+        try:
+            return response.json()  # Retorna os dados do contato criado.
+        except requests.exceptions.JSONDecodeError:
+            print("Erro: Resposta não é um JSON válido.")
+            return None
     else:
         print(f"Erro ao criar lead: {response.status_code}")
         print(response.text)

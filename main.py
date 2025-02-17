@@ -7,9 +7,6 @@ def main():
     print ('Iniciando Cadastro de Lead e Organização. Por favor digite os dados solicitados abaixo:\n')
     main_data = data_collect()
 
-    print(main_data)
-    input('digite 1 para continuar')
-
     organization_id = handle_org(main_data)
     if not organization_id:
         print('Erro ao criar organização')

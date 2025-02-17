@@ -16,11 +16,12 @@ def handle_org(main_data):
         state=main_data["state"],
         country=main_data["country"]
     )
-
-    print (org)
-    input('Até aqui tudo certo. Digite 1: ')
     
     org_json = OrganizationSerializer.serialize(org)
     response = create_org(org_json)
     
-    return response.get("organizationId")
+    if response is not None and "organizationId" in response:
+        return response["organizationId"]
+    else:
+        print("Erro ao obter 'organizationId' da resposta:", response)
+        return None
