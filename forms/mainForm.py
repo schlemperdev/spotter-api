@@ -14,7 +14,7 @@ def data_collect():
         "city": input("Cidade: "),
         "state": input("Estado: "),
         "country": input("País: "),
-        "industry": input("Setor: "),
+        "industry": input("Mercado: "),
         "source": input("Origem: "),
         "subSource": input("Sub-origem: "),
         "funnelId": input("ID do Funil: "),

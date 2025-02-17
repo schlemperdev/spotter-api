@@ -5,7 +5,7 @@ import requests
 
 load_dotenv()
 API_KEY = os.getenv("SPOTTER_API_KEY")
-BASE_URL = os.getenv("SSPOTER_BASE_URL")
+BASE_URL = os.getenv("SPOTER_BASE_URL")
 
 endpoint = ""
 url = f"{BASE_URL}{endpoint}"
