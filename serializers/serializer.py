@@ -41,23 +41,26 @@ class ContactSerializer:
             "leadId": contact.leadId,
             "ddiPhone1": contact.ddiPhone1,
             "phone1": contact.phone1,
-            "mainContact": "TRUE"
+            "mainContact": True
         })
 
 
 class OrganizationSerializer:
     @staticmethod
     def serialize(org):
-        return json.dumps({
-            "name": org.name,
-            "userEmail": org.sdrEmail,
-            "cpfCnpj": org.cpfCnpj,
-            "ddiPhone": org.ddiPhone,
-            "phone": org.phone,
-            "address": org.address,
-            "addressComplement": org.addressComplement,
-            "zipcode": org.zipcode,
-            "city": org.city,
-            "state": org.state,
-            "country": org.country
+        return ({
+            "duplicityValidation": False,
+            "organization": {    
+                "name": org.name,
+                "userEmail": org.sdrEmail,
+                "cpfCnpj": org.cpfCnpj,
+                "ddiPhone": org.ddiPhone,
+                "phone": org.phone,
+                "address": org.address,
+                "addressComplement": org.addressComplement,
+                "zipcode": org.zipcode,
+                "city": org.city,
+                "state": org.state,
+                "country": org.country
+            }
         })

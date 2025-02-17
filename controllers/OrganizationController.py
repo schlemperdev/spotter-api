@@ -1,6 +1,6 @@
 from models.OrganizationModel import Organization
 from serializers.serializer import OrganizationSerializer
-from api_requests.crm_api import create_org
+from api_requests.crm_api import create_org, get_orgId
 
 def handle_org(main_data):
     org = Organization(
@@ -18,10 +18,20 @@ def handle_org(main_data):
     )
     
     org_json = OrganizationSerializer.serialize(org)
-    response = create_org(org_json)
-    
-    if response is not None and "organizationId" in response:
-        return response["organizationId"]
+    org_json["organization"] = {key: value for key, value in org_json["organization"].items() if value}
+
+    response = get_orgId(org_json)
+
+    if "value" in response and len(response["value"]) > 0:
+        return response["value"][0]["id"]
     else:
-        print("Erro ao obter 'organizationId' da resposta: ", response)
-        return None
+        print("Erro ao obter 'id' da organização: ", response)
+        print("Criando organização...")
+        
+        response = create_org(org_json)
+
+        if "value" in response and len(response["value"]) > 0:
+            return response["value"][0]["id"]
+        else:
+            print("Erro: ", response)
+            return None

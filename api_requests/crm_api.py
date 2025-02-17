@@ -16,10 +16,10 @@ headers = {"Content-Type": "application/json", "token_exact": API_KEY}
 
 
 def create_org(org_json):
-    endpoint = "/personsAdd"
+    endpoint = "/organizationAdd"
     url = BASE_URL + endpoint
 
-    response = requests.post(url, data=org_json, headers=headers)
+    response = requests.post(url, json=org_json, headers=headers)
 
     if response.status_code == 201:
         try:
@@ -30,6 +30,24 @@ def create_org(org_json):
     else:
         print(f"Erro código: {response.status_code}")
         print("Resposta:", response.text)
+        return None
+
+def get_orgId(org_json):
+    endpoint = "/organization"
+    odataFilter = f"?$filter=cpfCnpj eq '{org_json["organization"]["cpfCnpj"]}'"
+
+    url = BASE_URL + endpoint + odataFilter
+
+    response = requests.get(url, headers=headers)
+
+    if response.status_code == 200:
+        try:
+            return response.json()
+        except Exception as e:
+            print(f"Error parsing response: {e}")
+    else:
+        print(f"Error while fetching organization: {response.status_code}")
+        print(response.text)
         return None
 
 
@@ -46,8 +64,8 @@ def create_lead(lead_json):
             print("Erro: Resposta não é um JSON válido.")
             return None
     else:
-        print(f"Erro código: {response.status_code}")
-        print("Resposta:", response.text)
+        print("Erro código: ", {response.status_code})
+        print("Resposta: ", response.text)
         return None
 
 
