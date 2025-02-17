@@ -1,5 +1,5 @@
-def lead_data_collect():
-    print("Cadastro de Lead:")
+def data_collect():
+    print("Cadastro Geral:")
     return {
         "cpfCnpj": input("CPF/CNPJ: "),
         "name": input("Nome do Lead: "),
