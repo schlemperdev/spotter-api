@@ -26,12 +26,18 @@ def handle_org(main_data):
         return response["value"][0]["id"]
     else:
         print("Erro ao obter 'id' da organização: ", response)
-        print("Criando organização...")
-        
-        response = create_org(org_json)
+        print("Você deseja criar uma nova organização com este CNPJ: ", org_json["organization"]["cpfCnpj"], "?")
+        proceed = input("Digite sim ou nao. Esta operação não é reversível\n")
 
-        if "value" in response and len(response["value"]) > 0:
-            return response["value"][0]["id"]
+        if proceed == "sim":
+            response = create_org(org_json)
+
+            if "value" in response and len(response["value"]) > 0:
+                return response["value"][0]["id"]
+            else:
+                print("Erro: ", response)
+                return None
+
         else:
-            print("Erro: ", response)
-            return None
+            print("Cadastro interrompido pelo usuário.")
+            exit

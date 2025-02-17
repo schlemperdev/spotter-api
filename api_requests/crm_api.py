@@ -15,23 +15,7 @@ if not API_KEY or not BASE_URL:
 headers = {"Content-Type": "application/json", "token_exact": API_KEY}
 
 
-def create_org(org_json):
-    endpoint = "/organizationAdd"
-    url = BASE_URL + endpoint
-
-    response = requests.post(url, json=org_json, headers=headers)
-
-    if response.status_code == 201:
-        try:
-            return response.json()  # Retorna os dados da organização criada, incluindo o ID
-        except requests.exceptions.JSONDecodeError:
-            print("Erro: Resposta não é um JSON válido.")
-            return None
-    else:
-        print(f"Erro código: {response.status_code}")
-        print("Resposta:", response.text)
-        return None
-
+## ORGANIZATION
 def get_orgId(org_json):
     endpoint = "/organization"
     odataFilter = f"?$filter=cpfCnpj eq '{org_json["organization"]["cpfCnpj"]}'"
@@ -50,7 +34,24 @@ def get_orgId(org_json):
         print(response.text)
         return None
 
+def create_org(org_json):
+    endpoint = "/organizationAdd"
+    url = BASE_URL + endpoint
 
+    response = requests.post(url, json=org_json, headers=headers)
+
+    if response.status_code == 201:
+        try:
+            return response.json()  # Retorna os dados da organização criada, incluindo o ID
+        except requests.exceptions.JSONDecodeError:
+            print("Erro: Resposta não é um JSON válido.")
+            return None
+    else:
+        print(f"Erro código: {response.status_code}")
+        print("Resposta:", response.text)
+        return None
+
+## LEAD
 def create_lead(lead_json):
     endpoint = "/LeadsAdd"
     url = BASE_URL + endpoint
@@ -68,7 +69,7 @@ def create_lead(lead_json):
         print("Resposta: ", response.text)
         return None
 
-
+## CONTACT
 def create_contact(contact_json):
     endpoint = "/personsAdd"
     url = BASE_URL + endpoint
