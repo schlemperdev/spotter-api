@@ -8,12 +8,13 @@ def main():
     main_data = data_collect()
 
     organization_id = handle_org(main_data)
-    input(organization_id)
+    print('ID da Organização:', organization_id)
     if not organization_id:
         print('Erro ao criar organização')
         return
     
     lead_id = handle_lead(main_data, organization_id)
+    input(lead_id)
     if not lead_id:
         print('Erro ao cirar o lead')
         return

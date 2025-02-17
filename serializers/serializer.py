@@ -4,38 +4,41 @@ import json
 class LeadSerializer:
     @staticmethod
     def serialize(lead):
-        return json.dumps({
-            "name": lead.name,
-            "industry": lead.industry,
-            "source": lead.source,
-            "subSource": lead.subSource,
-            "organizationId": lead.organizationId,
-            "sdrEmail": lead.sdrEmail,
-            "ddiPhone": lead.ddiPhone,
-            "phone": lead.phone,
-            "address": lead.address,
-            "addressNumber": lead.addressNumber,
-            "addressComplement": lead.addressComplement,
-            "neighborhood": lead.neighborhood,
-            "zipcode": lead.zipcode,
-            "city": lead.city,
-            "state": lead.state,
-            "country": lead.country,
-            "description": lead.description,
-            "cpfcnpj": lead.cpfCnpj,
-            "funnelId": lead.funnelId,
-            "stage": lead.stage,
-            "camposPersonalizados": [
-                {"id": "customId01", "valor": lead.id01},
-                {"id": "customId02", "valor": lead.id02}
-            ]
+        return ({
+            "duplicityValidation": True,
+            "lead": {
+                "name": lead.name,
+                "industry": lead.industry,
+                "source": lead.source,
+                "subSource": lead.subSource,
+                "organizationId": lead.organizationId,
+                "sdrEmail": lead.sdrEmail,
+                "ddiPhone": lead.ddiPhone,
+                "phone": lead.phone,
+                "address": lead.address,
+                "addressNumber": lead.addressNumber,
+                "addressComplement": lead.addressComplement,
+                "neighborhood": lead.neighborhood,
+                "zipcode": lead.zipcode,
+                "city": lead.city,
+                "state": lead.state,
+                "country": lead.country,
+                "description": lead.description,
+                "cpfcnpj": lead.cpfCnpj,
+                "funnelId": lead.funnelId,
+                "stage": lead.stage,
+                # "camposPersonalizados": [
+                #     {"id": "customId01", "valor": lead.id01},
+                #     {"id": "customId02", "valor": lead.id02}
+                # ]
+            }
         })
 
 
 class ContactSerializer:
     @staticmethod
     def serialize(contact):
-        return json.dumps({
+        return ({
             "E-mail": contact.contactEmail,
             "Name": contact.contactName,
             "leadId": contact.leadId,
@@ -49,7 +52,7 @@ class OrganizationSerializer:
     @staticmethod
     def serialize(org):
         return ({
-            "duplicityValidation": False,
+            "duplicityValidation": True,
             "organization": {    
                 "name": org.name,
                 "userEmail": org.sdrEmail,
