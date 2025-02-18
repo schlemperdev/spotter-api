@@ -2,6 +2,7 @@ from models.organization import Organization
 from serializers.organization_serializer import OrganizationSerializer
 from api_requests.crm_api import create_org, get_orgId
 
+
 def get_user_confirmation(prompt):
     """Helper function to get a yes/no confirmation for the user."""
     while True:
@@ -10,20 +11,22 @@ def get_user_confirmation(prompt):
             return response == "sim"
         print("Resposta inválida. Digite 'sim' ou 'não'.")
 
-def handle_org(main_data):
+
+def handle_org(organization_data):
     """ Handles organization lookup or creation """
     try:
-        org = Organization(**main_data)
-        
+        org = Organization(**organization_data)
+
         org_json = OrganizationSerializer.serialize(org)
 
         response = get_orgId(org_json)
 
-        if response and "value" in response and response["value"]: ##Retruns Org ID
+        # Retruns Org ID
+        if response and "value" in response and response["value"]:
             return response["value"][0]["id"]
 
         print("Erro ao obter 'id' da organização: ", response)
-        
+
         if get_user_confirmation(f"Você deseja criar uma nova organização com CNPJ {org_json["organization"]["cpfCnpj"]}?"):
             response = create_org(org_json)
             if response and "value" in response and response["value"]:
@@ -32,7 +35,7 @@ def handle_org(main_data):
 
         print("Cadastro interrompido pelo usuário.")
         return None
-        
+
     except Exception as e:
         print(f"Erro ao processar a organização: {e}")
         return None
