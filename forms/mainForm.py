@@ -29,7 +29,7 @@ def contact_data_collect():
     contact_data = {
         "contactName": input("Nome do Contato: "),
         "contactEmail": input("E-mail: "),
-        "ddiPhone1": "55",
+        "ddiPhone1": input("DDI Telefone: "),
         "phone1": input("Telefone: ")
     }
     return contact_data

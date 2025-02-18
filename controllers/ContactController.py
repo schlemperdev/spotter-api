@@ -9,6 +9,7 @@ def handle_contact(contact_data, lead_id):
         contact = Contact(**contact_data, leadId=lead_id)
 
         contact_json = ContactSerializer.serialize(contact)
+        input(contact_json) ##debugging
 
         response = create_contact(contact_json)
 
