@@ -1,19 +1,20 @@
 from serializers.base_serializer import BaseSerializer
+from dataclasses import asdict
 
 
 class LeadSerializer(BaseSerializer):
     @classmethod
     def serialize(cls, lead):
         """Serializes a Lead instance with additional static fields."""
-        lead_dict = 
+        lead_dict = cls.clean_dict(asdict(lead))
 
-        if "cpfCnpj" in lead_data:      #Renames cpfCnpj to cpfcnpj
-            lead_data["cpfcnpj"] = lead_data.pop("cpfCnpj")
+        if "cpfCnpj" in lead_dict:      #Renames cpfCnpj to cpfcnpj
+            lead_dict["cpfcnpj"] = lead_dict.pop("cpfCnpj")
 
-        if "userEmail" in lead_data:    #Renames userEmail to sdrEmail
-            lead_data["sdrEmail"] = lead_data.pop("userEmail")
+        if "userEmail" in lead_dict:    #Renames userEmail to sdrEmail
+            lead_dict["sdrEmail"] = lead_dict.pop("userEmail")
 
         return {
             "duplicityValidation": True,
-            "lead": super().serialize(lead_data)
+            "lead": lead_dict
         }
