@@ -10,7 +10,6 @@ def main():
     organization_id = handle_org(main_data)
     print('ID da Organização:', organization_id)
     if not organization_id:
-        print('Erro ao criar organização')
         return
     
     lead_id = handle_lead(main_data, organization_id)
