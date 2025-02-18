@@ -1,3 +1,6 @@
+from dataclasses import asdict
+
+
 class BaseSerializer:
     """Base serializer that can automatically convert objects to JSON-compatible dictionaries."""
 

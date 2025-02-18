@@ -1,3 +1,4 @@
+from dataclasses import asdict
 from models.lead import Lead
 from serializers.lead_serializer import LeadSerializer
 from api_requests.crm_api import create_lead

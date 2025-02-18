@@ -1,3 +1,4 @@
+from dataclasses import asdict
 from models.organization import Organization
 from serializers.organization_serializer import OrganizationSerializer
 from api_requests.crm_api import create_org, get_orgId
