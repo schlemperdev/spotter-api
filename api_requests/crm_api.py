@@ -17,6 +17,10 @@ HEADERS = {"Content-Type": "application/json", "token_exact": API_KEY}
 
 def handle_response(response):
     """ Handles API response and errors """
+
+    input(response) 
+    """ debugging """
+
     try:
         response.raise_for_status()
         return response.json()

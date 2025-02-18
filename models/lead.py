@@ -12,5 +12,5 @@ class Lead(BaseEntity):
     subSource: str
     organizationId: str
     # description: str
-    funnelId: int
+    funnelId: str
     stage: str
