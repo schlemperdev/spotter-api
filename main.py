@@ -1,10 +1,10 @@
 from forms.mainForm import data_collect, contact_data_collect
 from controllers.OrganizationController import handle_org
 from controllers.LeadController import handle_lead
-from controllers.ConctactController import handle_contact
+from controllers.ContactController import handle_contact
 
 def main():
-    print ('Iniciando Cadastro de Lead e Organização. Por favor digite os dados solicitados abaixo:\n')
+    print('Iniciando Cadastro de Lead e Organização. Por favor digite os dados solicitados abaixo:\n')
     main_data = data_collect()
 
     organization_id = handle_org(main_data)
@@ -13,7 +13,6 @@ def main():
         return
     
     lead_id = handle_lead(main_data, organization_id)
-    input(lead_id)
     if not lead_id:
         print('Erro ao cirar o lead')
         return
