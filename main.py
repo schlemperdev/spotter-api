@@ -8,9 +8,9 @@ def main():
     main_data = data_collect()
 
     organization_id = handle_org(main_data)
-    print('ID da Organização:', organization_id)
     if not organization_id:
         return
+    print('ID da Organização:', organization_id)
     
     lead_id = handle_lead(main_data, organization_id)
     if not lead_id:
