@@ -1,5 +1,5 @@
 from models.ContactModel import Contact
-from serializers.serializer import ContactSerializer
+from serializers.contact_serializer import ContactSerializer
 from api_requests.crm_api import create_contact
 
 def handle_contact(contact_data, lead_id):

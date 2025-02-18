@@ -1,5 +1,5 @@
 from models.LeadModel import Lead
-from serializers.serializer import LeadSerializer
+from serializers.lead_serializer import LeadSerializer
 from api_requests.crm_api import create_lead
 
 def handle_lead(main_data, organization_id):

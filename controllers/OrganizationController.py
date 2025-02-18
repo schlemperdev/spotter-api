@@ -1,5 +1,5 @@
 from models.OrganizationModel import Organization
-from serializers.serializer import OrganizationSerializer
+from serializers.organization_serializer import OrganizationSerializer
 from api_requests.crm_api import create_org, get_orgId
 
 def get_user_confirmation(prompt):
