@@ -40,7 +40,7 @@ def get_orgId(org_json):
 def create_org(org_json):
     """ Creates an organization. """
     url = f"{BASE_URL}/organizationAdd"
-    return handle_response(requests.post(url, json=org_json, headers=HEADERS))
+    return handle_response(requests.post(url, json=(org_json), headers=HEADERS))
 
 # LEAD
 
@@ -48,7 +48,7 @@ def create_org(org_json):
 def create_lead(lead_json):
     """ Creates a lead. """
     url = f"{BASE_URL}/LeadsAdd"
-    return handle_response(requests.post(url, json=lead_json, headers=HEADERS))
+    return handle_response(requests.post(url, json=(lead_json), headers=HEADERS))
 
 # CONTACT
 

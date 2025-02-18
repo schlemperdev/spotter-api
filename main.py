@@ -14,7 +14,7 @@ def main():
     organization_data, lead_data = split_data_for_entities(main_data)
 
     # Handle Organization
-    organization_id = handle_org(organization_data)
+    organization_id = str(handle_org(organization_data))
     if not organization_id:
         return
     print('ID da Organização:', organization_id)

@@ -10,6 +10,7 @@ def handle_lead(lead_data, organization_id):
         lead = Lead(**lead_data, organizationId=organization_id)
 
         lead_json = LeadSerializer.serialize(lead)
+        input(lead_json)
 
         response = create_lead(lead_json)
 

@@ -5,7 +5,7 @@ from dataclasses import dataclass
 class BaseEntity:
     cpfCnpj: str
     name: str
-    sdrEmail: str
+    userEmail: str
     ddiPhone: str
     phone: str
     address: str

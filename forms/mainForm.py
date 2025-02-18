@@ -1,10 +1,11 @@
 def data_collect():
     print("Cadastro Geral:")
     main_data = {
+        "leadId": "",
         "cpfCnpj": input("CPF/CNPJ: "),
         "name": input("Nome do Lead: "),
-        "sdrEmail": "renan.schlemper@brasilrad.com.br",
-        "ddiPhone": "55",
+        "userEmail": "renan.schlemper@brasilrad.com.br",
+        "ddiPhone": input("DDI Telefone: "),
         "phone": input("Telefone: "),
         "address": input("Endereço: "),
         "addressNumber": input("Número: "),
