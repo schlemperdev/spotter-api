@@ -1,4 +1,4 @@
-from models.ContactModel import Contact
+from models.contact import Contact
 from serializers.contact_serializer import ContactSerializer
 from api_requests.crm_api import create_contact
 

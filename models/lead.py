@@ -1,4 +1,4 @@
-from models.BaseEntity import BaseEntity
+from models.base import BaseEntity
 
 
 class Lead(BaseEntity):
