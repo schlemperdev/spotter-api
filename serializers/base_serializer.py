@@ -8,11 +8,7 @@ class BaseSerializer:
 
     @classmethod
     def serialize(cls, obj, extra_data=None):
-        """
-        Serializes an object by automatically extracting its attributes 
-        and filtering out None values. Supports additional static fields.
-        """
-        data = vars(obj)  # Automatically converts an object to a dictionary
+        """ Serializes an object by automatically filtering out None values. Supports additional static fields. """
         data = cls.clean_dict(data)  # Remove None values
 
         # Merge extra_data if provided

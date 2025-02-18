@@ -14,6 +14,7 @@ if not API_KEY or not BASE_URL:
 
 HEADERS = {"Content-Type": "application/json", "token_exact": API_KEY}
 
+
 def handle_response(response):
     """ Handles API response and errors """
     try:
@@ -27,24 +28,31 @@ def handle_response(response):
         print("Erro: Resposta não é um JSON válido.")
     return None
 
-## ORGANIZATION
+# ORGANIZATION
+
+
 def get_orgId(org_json):
     """ Fetches an organization ID by CNPJ. """
     url = f"{BASE_URL}/organization?$filter=cpfCnpj eq '{org_json["organization"]["cpfCnpj"]}'"
     return handle_response(requests.get(url, headers=HEADERS))
+
 
 def create_org(org_json):
     """ Creates an organization. """
     url = f"{BASE_URL}/organizationAdd"
     return handle_response(requests.post(url, json=org_json, headers=HEADERS))
 
-## LEAD
+# LEAD
+
+
 def create_lead(lead_json):
     """ Creates a lead. """
     url = f"{BASE_URL}/LeadsAdd"
     return handle_response(requests.post(url, json=lead_json, headers=HEADERS))
 
-## CONTACT
+# CONTACT
+
+
 def create_contact(contact_json):
     """ Creates a contact """
     url = f"{BASE_URL}/personsAdd"
