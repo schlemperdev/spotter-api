@@ -16,7 +16,6 @@ def handle_org(main_data):
         org = Organization(**main_data)
         
         org_json = OrganizationSerializer.serialize(org)
-        org_json["organization"] = {key: value for key, value in org_json["organization"].items() if value}
 
         response = get_orgId(org_json)
 

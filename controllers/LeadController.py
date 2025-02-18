@@ -8,7 +8,6 @@ def handle_lead(main_data, organization_id):
         lead = Lead(**main_data, organizationId=organization_id)
 
         lead_json = LeadSerializer.serialize(lead)
-        lead_json["lead"] = {key: value for key, value in lead_json["lead"].items() if value}
 
         response = create_lead(lead_json)
 

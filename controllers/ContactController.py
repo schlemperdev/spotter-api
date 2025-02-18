@@ -7,7 +7,6 @@ def handle_contact(contact_data, lead_id):
         contact = Contact(**contact_data, leadId=lead_id)
 
         contact_json = ContactSerializer.serialize(contact)
-        contact_json = {key: value for key, value in contact_json.items() if value}
 
         response = create_contact(contact_json)
 
