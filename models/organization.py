@@ -1,7 +1,6 @@
+from dataclasses import dataclass, field
 from models.base import BaseEntity
 
-
+@dataclass
 class Organization(BaseEntity):
-    def __init__(self, cpfCnpj, name, sdrEmail, ddiPhone, phone, address, addressComplement, zipcode, city, state, country):
-        super().__init__(cpfCnpj, name, sdrEmail, ddiPhone, phone, address, addressComplement, zipcode, city, state, country)
-        self.organizationId = None
+    organizationId: str = field(default=None)
